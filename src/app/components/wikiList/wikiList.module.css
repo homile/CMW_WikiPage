@@ -1,0 +1,16 @@
+.container {
+  padding-top: 50px;
+  padding-bottom: 60px;
+}
+
+.topWrapper{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.wikiList {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  padding-bottom: 58px;
+}

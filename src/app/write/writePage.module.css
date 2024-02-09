@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+  padding-top: 50px;
+}
+
+.title {
+  height: 60px;
+}
+
+.content {
+}
