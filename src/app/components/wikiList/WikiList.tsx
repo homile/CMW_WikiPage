@@ -20,7 +20,7 @@ const ITEMS_PER_PAGE = 5;
 const WikiList = () => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  const { replace } = useRouter();
+  const { push } = useRouter();
 
   const [wikiList, setWikiList] = useState<Wiki[]>([]);
 
@@ -41,7 +41,7 @@ const WikiList = () => {
     } else {
       params.delete("page");
     }
-    replace(`${pathname}?${params.toString()}`);
+    push(`${pathname}?${params.toString()}`);
   };
 
   // 현재 페이지 쿼리 파라미터에서 가져옴
