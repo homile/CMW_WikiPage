@@ -4,6 +4,12 @@ export interface Wiki {
   content: string;
 }
 
+export interface typePostWiki {
+  title: string;
+  content: string;
+}
+
+
 export interface WikiCardProps {
   wiki: Wiki;
 }

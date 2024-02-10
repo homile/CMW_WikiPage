@@ -1,5 +1,8 @@
 import axios from "axios";
 
+// import types
+import { Wiki } from "@/app/types/wiki";
+
 const apiClient = axios.create({
   baseURL: "/api",
   headers: {
@@ -25,8 +28,8 @@ export const postWiki = async (newWiki: { title: string; content: string }) => {
   return response.data;
 };
 
-export const putWiki = async (id: string, updatedWiki: {}) => {
-  const response = await apiClient.put(`/wiki/${id}`, updatedWiki);
+export const putWiki = async (id: string, title: string, content: string) => {
+  const response = await apiClient.put(`/wiki/${id}`, { id, title, content });
 
   return response.data;
 };

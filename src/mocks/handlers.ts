@@ -40,17 +40,21 @@ export const handlers = [
     return HttpResponse.json({ status: 201, data: newWiki });
   }),
 
-  http.put("/api/wiki/:id", ({ request, params }) => {
+  http.put("/api/wiki/:id", async ({ request, params }) => {
     const { id } = params;
 
-    const postIndex = wikiList.findIndex((post) => post.id === id);
-    if (postIndex < 0) {
+    const wikiIndex = wikiList.findIndex((wiki) => wiki.id === id);
+
+    if (wikiIndex < 0) {
       return HttpResponse.json({ status: 404 });
     }
-    const updatedPost = { ...wikiList[postIndex], ...request.body };
-    wikiList[postIndex] = updatedPost;
 
-    return HttpResponse.json({ status: 201, data: updatedPost });
+    const inputWiki: any = await request.json();
+
+    const updatedWiki = { ...wikiList[wikiIndex], ...inputWiki };
+    wikiList[wikiIndex] = updatedWiki;
+
+    return HttpResponse.json({ status: 201, data: updatedWiki });
   }),
 
   http.delete("/api/wiki", ({ request }) => {

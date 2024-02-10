@@ -9,6 +9,7 @@ import { Wiki } from "@/app/types/wiki";
 
 // import css
 import styles from "./wikiPage.module.css";
+import Link from "next/link";
 
 const WikiPage = ({ params }: { params: { wikiId: string } }) => {
   const [wikiInfo, setWikiInfo] = useState<Wiki>();
@@ -54,6 +55,11 @@ const WikiPage = ({ params }: { params: { wikiId: string } }) => {
     <div className={styles.container}>
       <h1 className={styles.title}>{wikiInfo?.title}</h1>
       {wikiInfo && handleWikiTitleLink(wikiInfo.content)}
+      <div>
+        <Link href={`/write?wikiId=${params.wikiId}`}>
+          <button>수정</button>
+        </Link>
+      </div>
     </div>
   );
 };
