@@ -16,3 +16,11 @@
   vertical-align: middle;
   padding: 4px;
 }
+
+.content {
+  font-size: 18px;
+}
+
+.link {
+  color: blue;
+}
