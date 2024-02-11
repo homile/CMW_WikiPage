@@ -85,13 +85,28 @@ const WritePage = () => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.container}>
-      <input type="text" name="title" value={wiki.title} onChange={handleInputChange} className={styles.title} />
-      <textarea name="content" value={wiki.content} onChange={handleInputChange} className={styles.content} />
-      <div>
-        <button type="reset" onClick={() => router.back()}>
+      <input
+        type="text"
+        name="title"
+        value={wiki.title}
+        onChange={handleInputChange}
+        className={styles.title}
+        placeholder="제목을 입력해주세요"
+      />
+      <textarea
+        name="content"
+        value={wiki.content}
+        onChange={handleInputChange}
+        className={styles.content}
+        placeholder="본문을 입력해주세요"
+      />
+      <div className={styles.btnWrapper}>
+        <button type="reset" className={styles.cancleBtn} onClick={() => router.back()}>
           취소
         </button>
-        <button type="submit">{queryParams ? "수정" : "작성"}</button>
+        <button type="submit" className={styles.submitBtn}>
+          {queryParams ? "수정" : "작성"}
+        </button>
       </div>
     </form>
   );

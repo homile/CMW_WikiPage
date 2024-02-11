@@ -55,9 +55,9 @@ const WikiPage = ({ params }: { params: { wikiId: string } }) => {
     <div className={styles.container}>
       <h1 className={styles.title}>{wikiInfo?.title}</h1>
       {wikiInfo && handleWikiTitleLink(wikiInfo.content)}
-      <div>
+      <div className={styles.btnWrapper}>
         <Link href={`/write?wikiId=${params.wikiId}`}>
-          <button>수정</button>
+          <button className={styles.updateBtn}>수정</button>
         </Link>
       </div>
     </div>

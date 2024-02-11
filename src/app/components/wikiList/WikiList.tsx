@@ -61,27 +61,34 @@ const WikiList = () => {
   return (
     <div className={styles.container}>
       <div className={styles.topWrapper}>
+        <div>전체 : {wikiList.length}</div>
         <div>
           <Link href={`/write`}>
-            <button>추가</button>
+            <button className={styles.createBtn}>추가</button>
           </Link>
         </div>
       </div>
-      <div>전체 : {wikiList.length}</div>
       <div className={styles.wikiList}>
         {currentWikis.map((wiki: Wiki) => {
           return <WikiCard key={wiki.id} wiki={wiki} />;
         })}
       </div>
-      {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
-        <button
-          key={pageNum}
-          onClick={() => handlePagenation(pageNum)}
-          style={{ fontWeight: pageNum === currentPage ? "bold" : "normal" }}
-        >
-          {pageNum}
-        </button>
-      ))}
+      <div className={styles.paganationWrapper}>
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
+          <button
+            key={pageNum}
+            className={styles.pagenationBtn}
+            onClick={() => handlePagenation(pageNum)}
+            style={{
+              fontWeight: pageNum === currentPage ? "bold" : "normal",
+              color: pageNum === currentPage ? "#ffffff" : "#d3d3d3",
+              backgroundColor: pageNum === currentPage ? "#7FCCDE" : "#ffffff",
+            }}
+          >
+            {pageNum}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };
